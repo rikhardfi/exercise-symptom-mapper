@@ -6,16 +6,9 @@ A tool for mapping respiratory symptoms across exercise stages. Athletes and phy
 
 ## Background
 
-Exercise-induced respiratory symptoms are common among endurance athletes, particularly in cold-air sports such as cross-country skiing. Symptoms like cough, chest tightness, breathlessness, and wheezing can occur during and after exercise, and their temporal pattern — when they appear and how long they persist — is clinically important for distinguishing exercise-induced bronchoconstriction, asthma, and other airway conditions.
+Respiratory symptoms are remarkably common in endurance athletes. In competitive cross-country skiers, asthma prevalence is roughly 20–25% — two to three times higher than in the general population — driven largely by years of breathing cold, dry air at high ventilation rates. Cough is the dominant complaint, reported by over 60% of skiers after exercise, followed by mucus production, wheezing, and breathlessness. Crucially, most athletes are nearly asymptomatic at rest; symptoms build during exercise and often peak *after* it ends, sometimes persisting for hours. This temporal pattern — *when* symptoms appear relative to exercise, not just *whether* they appear — is what matters clinically, because it helps distinguish exercise-induced bronchoconstriction from other causes and guides treatment decisions. This tool was built to capture that pattern in a structured, visual way.
 
-This tool was developed to visualize the temporal profile of respiratory symptoms across exercise stages in a structured, reproducible way. It is based on research by Rikhard Mäki-Heikkilä at Tampere University on asthma and respiratory health in competitive athletes:
-
-- Mäki-Heikkilä R, Karjalainen J, Parkkari J, Valtonen M, Lehtimäki L. Asthma in cross-country skiers: a systematic review and meta-analysis. *Sports Med.* 2020. [doi:10.1007/s40279-020-01334-4](https://doi.org/10.1007/s40279-020-01334-4)
-- Mäki-Heikkilä R, Karjalainen J, Parkkari J, Huhtala H, Valtonen M, Lehtimäki L. Asthma in competitive cross-country skiers: a cross-sectional study. *Scand J Med Sci Sports.* 2021. [doi:10.1111/sms.14040](https://doi.org/10.1111/sms.14040)
-- Mäki-Heikkilä R, Karjalainen J, Parkkari J, Huhtala H, Valtonen M, Lehtimäki L. High training volume is associated with increased prevalence of nonallergic asthma in competitive cross-country skiers. *BMJ Open Sport Exerc Med.* 2022;8:e001315. [doi:10.1136/bmjsem-2022-001315](https://doi.org/10.1136/bmjsem-2022-001315)
-- Mäki-Heikkilä R, Koskela H, Karjalainen J, Parkkari J, Huhtala H, Valtonen M, Lehtimäki L. Respiratory symptoms are common in cross-country skiers during exercise in cold and warm conditions. *BMJ Open Sport Exerc Med.* 2023;9:e001502. [doi:10.1136/bmjsem-2022-001502](https://doi.org/10.1136/bmjsem-2022-001502)
-- Mäki-Heikkilä R, Karjalainen J, Parkkari J, Huhtala H, Valtonen M, Lehtimäki L. Skiers with asthma are more susceptible to acute respiratory infections and loss of training days. *Int J Circumpolar Health.* 2023. [doi:10.1080/22423982.2023.2223359](https://doi.org/10.1080/22423982.2023.2223359)
-- Mäki-Heikkilä R. *Asthma and Respiratory Symptoms in Finnish Competitive Cross-Country Skiers.* Dissertation, Tampere University; 2024. [URN:ISBN:978-952-03-3277-8](https://urn.fi/URN:ISBN:978-952-03-3277-8)
+Based on research at Tampere University ([Mäki-Heikkilä 2020](https://doi.org/10.1007/s40279-020-01334-4), [2021](https://doi.org/10.1111/sms.14040), [2022](https://doi.org/10.1136/bmjsem-2022-001315), [2023a](https://doi.org/10.1136/bmjsem-2022-001502), [2023b](https://doi.org/10.1080/22423982.2023.2223359), [dissertation 2024](https://urn.fi/URN:ISBN:978-952-03-3277-8)).
 
 ## Features
 
