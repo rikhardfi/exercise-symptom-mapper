@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise Symptom Mapper</title>
+    <meta name="description" content="Rate and visualize respiratory symptoms across exercise stages. A clinical tool for athletes and physicians." />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Exercise Symptom Mapper" />
+    <meta property="og:description" content="Rate and visualize respiratory symptoms across exercise stages." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rikhard.github.io/exercise-symptom-mapper/" />
+  </head>
+  <body>
+    <div class="app" id="app">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <h1 id="app-title">Exercise Symptom Mapper</h1>
+          <p id="app-subtitle">Rate your respiratory symptoms at each exercise stage</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn-icon" id="help-toggle" type="button" aria-label="Help" title="Help">?</button>
+          <button class="btn-icon" id="lang-toggle" type="button" aria-label="Switch language" title="Switch language">FI</button>
+        </div>
+      </header>
+
+      <!-- Help Panel -->
+      <div class="help-panel" id="help-panel" role="region" aria-label="Help">
+        <h3 id="help-title">How to use</h3>
+        <p id="help-intro"></p>
+        <ul class="help-symptom-list" id="help-symptom-list"></ul>
+        <p id="help-scale"></p>
+        <p id="help-chart"></p>
+      </div>
+
+      <!-- Metadata -->
+      <div class="meta-row">
+        <div class="meta-field">
+          <label for="patient-name">Name (optional)</label>
+          <input type="text" id="patient-name" placeholder="Patient / athlete name" autocomplete="off" />
+        </div>
+        <div class="meta-field">
+          <label for="report-date">Date</label>
+          <input type="date" id="report-date" />
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <section class="chart-section" aria-label="Symptom chart">
+        <div class="chart-container">
+          <canvas id="symptom-chart"></canvas>
+        </div>
+      </section>
+
+      <!-- Export Bar -->
+      <div class="export-bar">
+        <span class="export-label" id="export-label">Export</span>
+        <button class="btn" id="btn-pdf" type="button">PDF</button>
+        <button class="btn" id="btn-xlsx" type="button">Excel</button>
+        <button class="btn" id="btn-json" type="button">JSON</button>
+        <button class="btn" id="btn-clipboard" type="button">Copy</button>
+        <button class="btn btn-reset" id="btn-reset" type="button">Reset all</button>
+      </div>
+
+      <!-- Sliders -->
+      <div class="sliders-container" id="sliders" role="region" aria-label="Symptom rating sliders"></div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        Exercise Symptom Mapper · <a href="https://rikhard.fi/oirekuvaaja" target="_blank" rel="noopener">rikhard.fi</a>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
