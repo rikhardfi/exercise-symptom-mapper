@@ -1,21 +1,36 @@
-MIT License
+Exercise Symptom Mapper — License
 
-Copyright (c) 2026 Rikhard Mäki-Heikkilä
+Copyright (c) 2026 Rikhard Mäki-Heikkilä, Tampere University
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+All rights reserved.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person to use this
+software and its associated documentation ("the Software") in its original,
+unmodified form, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+1. NO MODIFICATION. The Software must be used as-is. You may not alter,
+   adapt, translate, reverse-engineer, or create derivative works based on
+   the Software without prior written permission from the copyright holder.
+
+2. ATTRIBUTION REQUIRED. Any use of the Software — including embedding,
+   linking, or referencing in academic, clinical, or educational contexts —
+   must include the following citation:
+
+     Mäki-Heikkilä R. Exercise Symptom Mapper [software]. Tampere
+     University; 2026. Available at:
+     https://rikhardfi.github.io/exercise-symptom-mapper/
+
+3. NOT A MEDICAL DEVICE. The Software is provided for demonstration and
+   educational purposes only. It is not a validated medical device, diagnostic
+   tool, or clinical decision-support system. It must not be used as a
+   substitute for professional medical assessment. No clinical decisions
+   should be based solely on its output.
+
+4. NO WARRANTY. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+   KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+   NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR
+   OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE.
+
+For permissions beyond the scope of this license, contact:
+rikhard.maki-heikkila@tuni.fi
