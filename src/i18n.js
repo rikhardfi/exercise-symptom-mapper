@@ -64,7 +64,7 @@ const translations = {
     subtitle: 'Arvioi hengitysoireesi harjoituksen eri vaiheissa',
     symptoms: {
       cough: 'Yskä',
-      chestTightness: 'Rintakehän kireys',
+      chestTightness: 'Puristava tunne rintakehällä',
       breathlessness: 'Hengenahdistus',
       wheezing: 'Vinkuminen',
       mucus: 'Limaneritys',
@@ -89,7 +89,7 @@ const translations = {
       '2 t',
       'Aamu',
     ],
-    severity: ['Ei', 'Minimaalinen', 'Lievä', 'Kohtalainen', 'Vaikea', 'Erittäin vaikea'],
+    severity: ['Ei oiretta', 'Minimaalinen', 'Lievä', 'Kohtalainen', 'Vaikea', 'Erittäin vaikea'],
     ui: {
       name: 'Nimi (vapaaehtoinen)',
       namePlaceholder: 'Potilaan / urheilijan nimi',
@@ -104,13 +104,13 @@ const translations = {
       helpTitle: 'Käyttöohje',
       copied: 'Kopioitu!',
       resetAll: 'Nollaa',
-      resetConfirm: 'Nollaataanko kaikki arvot?',
+      resetConfirm: 'Nollataanko kaikki arvot?',
     },
     help: {
       intro: 'Arvioi kukin hengitysoire asteikolla 0 (ei oiretta) – 5 (erittäin vaikea) harjoituksen eri vaiheissa. Kuvaaja päivittyy reaaliajassa.',
       symptoms: {
         cough: 'Yskiminen — kuiva tai limaa tuottava, yksittäinen tai toistuva.',
-        chestTightness: 'Puristava, painava tai kiristävä tunne rintakehässä.',
+        chestTightness: 'Puristavaa tunnetta rintakehällä.',
         breathlessness: 'Hengitysvaikeus tai tunne, ettei saa riittävästi ilmaa — enemmän kuin rasitustaso edellyttäisi.',
         wheezing: 'Korkea vinkuva ääni hengitettäessä, erityisesti uloshengityksessä.',
         mucus: 'Lisääntynyt liman tai ysköksen eritys hengitysteissä.',
