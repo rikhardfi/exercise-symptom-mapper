@@ -2,7 +2,7 @@
 
 A clinical tool for mapping respiratory symptoms across exercise stages. Athletes and physicians rate five symptoms (cough, chest tightness, breathlessness, wheezing, mucus production) at eight exercise stages — from rest through maximal exercise to the next morning.
 
-**[Try it live](https://rikhardfi.github.io/exercise-symptom-mapper/)** | [rikhard.fi/oirekuvaaja](https://rikhard.fi/oirekuvaaja)
+**[Try it live](https://rikhardfi.github.io/exercise-symptom-mapper/)**
 
 > **Not a medical device.** This tool is for demonstration and educational purposes only. It is not a validated diagnostic instrument or clinical decision-support system. See [Disclaimer](#disclaimer) below.
 
@@ -108,7 +108,7 @@ Copyright (c) 2026 Rikhard Mäki-Heikkilä, Tampere University. Free to use in i
 
 Kliininen työkalu hengitysoireiden kartoittamiseen harjoituksen eri vaiheissa. Urheilijat ja lääkärit arvioivat viisi oiretta (yskä, puristava tunne rintakehällä, hengenahdistus, vinkuminen, limaneritys) kahdeksassa harjoituksen vaiheessa — levosta maksimaaliseen rasitukseen ja seuraavaan aamuun.
 
-**[Kokeile verkossa](https://rikhardfi.github.io/exercise-symptom-mapper/)** | [rikhard.fi/oirekuvaaja](https://rikhard.fi/oirekuvaaja)
+**[Kokeile verkossa](https://rikhardfi.github.io/exercise-symptom-mapper/)**
 
 > **Ei lääkinnällinen laite.** Työkalu on tarkoitettu ainoastaan demonstraatio- ja opetustarkoituksiin. Se ei ole validoitu diagnostinen instrumentti eikä kliininen päätöksenteon tukijärjestelmä. Katso [Vastuuvapauslauseke](#vastuuvapauslauseke) alla.
 
