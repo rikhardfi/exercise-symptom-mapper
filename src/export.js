@@ -3,6 +3,7 @@ import autoTable from 'jspdf-autotable';
 import * as XLSX from 'xlsx';
 import { SYMPTOM_KEYS, t, getLanguage } from './i18n.js';
 import { getChartBase64 } from './chart.js';
+import { isClinicalMode } from './sliders.js';
 
 function getMetadata() {
   const nameEl = document.getElementById('patient-name');
@@ -56,12 +57,17 @@ function exportPDF(data) {
   const stages = t('stages');
   const headers = [t('stages')[0] ? '' : 'Stage', ...symptoms];
 
+  const clinical = isClinicalMode();
   const body = stages.map((stage, i) => {
     const row = [stage];
     SYMPTOM_KEYS.forEach((key) => {
       const val = data[key][i];
-      const sev = t('severity')[val];
-      row.push(`${val} (${sev})`);
+      if (clinical) {
+        row.push(`${val} mm`);
+      } else {
+        const sev = t('severity')[val];
+        row.push(`${val} (${sev})`);
+      }
     });
     return row;
   });
@@ -134,9 +140,11 @@ function exportJSON(data) {
   const meta = getMetadata();
   const stages = t('stages');
 
+  const clinical = isClinicalMode();
   const structured = {
     version: '1.0',
     tool: 'Exercise Symptom Mapper',
+    mode: clinical ? 'VAS-100mm' : 'ordinal-0-5',
     language: meta.language,
     date: meta.date,
     name: meta.name || null,
@@ -173,11 +181,14 @@ function exportClipboard(data) {
   if (meta.name) text += `Name: ${meta.name}\n`;
   text += `Date: ${meta.date}\n\n`;
 
+  const clinical = isClinicalMode();
   SYMPTOM_KEYS.forEach((key) => {
     text += `${t(`symptoms.${key}`)}:\n`;
     stages.forEach((stage, i) => {
       const val = data[key][i];
-      text += `  ${stage}: ${val} (${severity[val]})\n`;
+      text += clinical
+        ? `  ${stage}: ${val} mm\n`
+        : `  ${stage}: ${val} (${severity[val]})\n`;
     });
     text += '\n';
   });

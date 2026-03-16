@@ -4,6 +4,7 @@ import { SYMPTOM_KEYS, t } from './i18n.js';
 
 const STAGES_COUNT = 8;
 const sliderInstances = {};
+let clinicalMode = false;
 
 const SYMPTOM_COLORS = {
   cough: '#e74c3c',
@@ -76,12 +77,11 @@ function createSliders(container, onChange) {
       row.appendChild(valueRow);
       card.appendChild(row);
 
-      const slider = noUiSlider.create(sliderEl, {
-        start: 0,
-        step: 1,
-        range: { min: 0, max: 5 },
-        connect: [true, false],
-      });
+      const sliderOpts = clinicalMode
+        ? { start: 0, step: 1, range: { min: 0, max: 100 }, connect: [true, false] }
+        : { start: 0, step: 1, range: { min: 0, max: 5 }, connect: [true, false] };
+
+      const slider = noUiSlider.create(sliderEl, sliderOpts);
 
       // Color the connect bar
       const connectEl = sliderEl.querySelector('.noUi-connect');
@@ -92,8 +92,13 @@ function createSliders(container, onChange) {
       slider.on('update', (values) => {
         const val = Math.round(values[0]);
         valueDisplay.textContent = val;
-        severityLabel.textContent = t('severity')[val];
-        severityLabel.setAttribute('data-severity', val);
+        if (clinicalMode) {
+          severityLabel.textContent = t('ui.clinicalUnit');
+          severityLabel.removeAttribute('data-severity');
+        } else {
+          severityLabel.textContent = t('severity')[val];
+          severityLabel.setAttribute('data-severity', val);
+        }
         onChange();
       });
 
@@ -140,4 +145,12 @@ function updateLabels() {
   });
 }
 
-export { createSliders, getData, resetAll, updateLabels, SYMPTOM_COLORS };
+function isClinicalMode() {
+  return clinicalMode;
+}
+
+function setClinicalMode(value) {
+  clinicalMode = value;
+}
+
+export { createSliders, getData, resetAll, updateLabels, SYMPTOM_COLORS, isClinicalMode, setClinicalMode };

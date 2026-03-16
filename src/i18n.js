@@ -45,6 +45,9 @@ const translations = {
       copied: 'Copied!',
       resetAll: 'Reset all',
       resetConfirm: 'Reset all values to zero?',
+      clinicalMode: 'VAS',
+      clinicalBadge: 'VAS 100 mm',
+      clinicalUnit: 'mm',
     },
     help: {
       intro: 'Rate each respiratory symptom from 0 (none) to 5 (very severe) at each stage of exercise. The chart updates in real time.',
@@ -105,6 +108,9 @@ const translations = {
       copied: 'Kopioitu!',
       resetAll: 'Nollaa',
       resetConfirm: 'Nollataanko kaikki arvot?',
+      clinicalMode: 'VAS',
+      clinicalBadge: 'VAS 100 mm',
+      clinicalUnit: 'mm',
     },
     help: {
       intro: 'Arvioi kukin hengitysoire asteikolla 0 (ei oiretta) – 5 (erittäin vaikea) harjoituksen eri vaiheissa. Kuvaaja päivittyy reaaliajassa.',

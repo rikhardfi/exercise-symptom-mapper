@@ -1,6 +1,6 @@
 import './style.css';
 import { t, getLanguage, toggleLanguage, SYMPTOM_KEYS } from './i18n.js';
-import { createSliders, getData, resetAll, updateLabels } from './sliders.js';
+import { createSliders, getData, resetAll, updateLabels, isClinicalMode, setClinicalMode } from './sliders.js';
 import { createChart, updateChart, updateChartLabels } from './chart.js';
 import { exportPDF, exportXLSX, exportJSON, exportClipboard } from './export.js';
 
@@ -61,6 +61,16 @@ function init() {
 
   document.getElementById('help-toggle').addEventListener('click', () => {
     document.getElementById('help-panel').classList.toggle('open');
+  });
+
+  document.getElementById('vas-toggle').addEventListener('click', () => {
+    const newMode = !isClinicalMode();
+    setClinicalMode(newMode);
+    const vasBtn = document.getElementById('vas-toggle');
+    vasBtn.classList.toggle('active', newMode);
+    document.getElementById('sliders').classList.toggle('clinical-mode', newMode);
+    createSliders(slidersContainer, onSliderChange);
+    onSliderChange();
   });
 
   document.getElementById('btn-pdf').addEventListener('click', () => {

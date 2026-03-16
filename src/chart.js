@@ -1,6 +1,6 @@
 import { Chart, registerables } from 'chart.js';
 import { SYMPTOM_KEYS, t } from './i18n.js';
-import { SYMPTOM_COLORS } from './sliders.js';
+import { SYMPTOM_COLORS, isClinicalMode } from './sliders.js';
 
 Chart.register(...registerables);
 
@@ -169,7 +169,29 @@ function updateChart(data) {
   if (!chartInstance) return;
 
   rawData = data;
-  const jittered = applyJitter(data);
+  const clinical = isClinicalMode();
+
+  // Update Y-axis for clinical mode
+  chartInstance.options.scales.y.max = clinical ? 100 : 5;
+  chartInstance.options.scales.y.ticks.stepSize = clinical ? 10 : 1;
+  chartInstance.options.scales.y.ticks.callback = (value) => {
+    if (clinical) return value;
+    const labels = t('severity');
+    return labels[value] ?? value;
+  };
+
+  // Update tooltip
+  chartInstance.options.plugins.tooltip.callbacks.label = (context) => {
+    const key = SYMPTOM_KEYS[context.datasetIndex];
+    const val = rawData ? rawData[key][context.dataIndex] : Math.round(context.parsed.y);
+    if (clinical) {
+      return `${context.dataset.label}: ${val} mm`;
+    }
+    const severity = t('severity');
+    return `${context.dataset.label}: ${val} (${severity[val] ?? ''})`;
+  };
+
+  const jittered = clinical ? data : applyJitter(data);
 
   SYMPTOM_KEYS.forEach((key, i) => {
     chartInstance.data.datasets[i].data = jittered[key];
