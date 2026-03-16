@@ -48,6 +48,11 @@ const translations = {
       clinicalMode: 'VAS',
       clinicalBadge: 'VAS 100 mm',
       clinicalUnit: 'mm',
+      vasAnchorLeft: 'No symptom',
+      vasAnchorRight: 'Worst imaginable',
+      vasMobileWarning: 'For calibrated VAS, use a tablet or larger screen',
+      vasMeasurements: 'VAS Measurements',
+      stageHeader: 'Stage',
     },
     help: {
       intro: 'Rate each respiratory symptom from 0 (none) to 5 (very severe) at each stage of exercise. The chart updates in real time.',
@@ -111,6 +116,11 @@ const translations = {
       clinicalMode: 'VAS',
       clinicalBadge: 'VAS 100 mm',
       clinicalUnit: 'mm',
+      vasAnchorLeft: 'Ei oiretta',
+      vasAnchorRight: 'Pahin mahdollinen',
+      vasMobileWarning: 'Kalibroitu VAS vaatii tabletin tai suuremman näytön',
+      vasMeasurements: 'VAS-mittaukset',
+      stageHeader: 'Vaihe',
     },
     help: {
       intro: 'Arvioi kukin hengitysoire asteikolla 0 (ei oiretta) – 5 (erittäin vaikea) harjoituksen eri vaiheissa. Kuvaaja päivittyy reaaliajassa.',

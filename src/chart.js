@@ -173,7 +173,7 @@ function updateChart(data) {
 
   // Update Y-axis for clinical mode
   chartInstance.options.scales.y.max = clinical ? 100 : 5;
-  chartInstance.options.scales.y.ticks.stepSize = clinical ? 10 : 1;
+  chartInstance.options.scales.y.ticks.stepSize = clinical ? 25 : 1;
   chartInstance.options.scales.y.ticks.callback = (value) => {
     if (clinical) return value;
     const labels = t('severity');

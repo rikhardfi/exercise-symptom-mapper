@@ -550,7 +550,12 @@ body {
 }
 
 .clinical-mode .slider-row {
-  grid-template-columns: 130px 100mm 80px;
+  grid-template-columns: auto 100mm 80px;
+}
+
+.clinical-mode .slider-label {
+  white-space: normal;
+  min-width: 100px;
 }
 
 .clinical-mode .slider-wrap {
@@ -583,9 +588,76 @@ body {
   display: inline;
 }
 
+.app.clinical-mode {
+  max-width: 1200px;
+}
+
+/* VAS Anchors */
+.vas-anchors {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+/* VAS Tick Marks */
+.vas-ticks {
+  position: relative;
+  height: 4px;
+  margin-top: -1px;
+}
+
+.vas-tick {
+  position: absolute;
+  width: 1px;
+  height: 4px;
+  background: #ccc;
+  top: 0;
+}
+
+/* VAS Mobile Warning Toast */
+.vas-mobile-warning {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26, 26, 46, 0.9);
+  color: #fff;
+  font-size: 0.82rem;
+  padding: 10px 18px;
+  border-radius: 8px;
+  z-index: 1000;
+  white-space: nowrap;
+  transition: opacity 0.4s ease;
+}
+
+.vas-mobile-warning.fade-out {
+  opacity: 0;
+}
+
+/* Clinical mode: allow horizontal scroll on small screens */
+.clinical-mode .symptom-card {
+  overflow-x: auto;
+}
+
+/* Multi-column layout on wide screens */
+@media (min-width: 1100px) {
+  .clinical-mode .sliders-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
 @media (max-width: 768px) {
   .clinical-mode .slider-row {
-    grid-template-columns: 80px 100mm 70px;
+    grid-template-columns: auto 100mm 70px;
+  }
+
+  .clinical-mode .slider-label {
+    min-width: 60px;
   }
 }
 

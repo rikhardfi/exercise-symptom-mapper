@@ -68,7 +68,7 @@ function init() {
     setClinicalMode(newMode);
     const vasBtn = document.getElementById('vas-toggle');
     vasBtn.classList.toggle('active', newMode);
-    document.getElementById('sliders').classList.toggle('clinical-mode', newMode);
+    document.getElementById('app').classList.toggle('clinical-mode', newMode);
     createSliders(slidersContainer, onSliderChange);
     onSliderChange();
   });

@@ -5,6 +5,7 @@ import { SYMPTOM_KEYS, t } from './i18n.js';
 const STAGES_COUNT = 8;
 const sliderInstances = {};
 let clinicalMode = false;
+let mobileWarningShown = false;
 
 const SYMPTOM_COLORS = {
   cough: '#e74c3c',
@@ -14,9 +15,26 @@ const SYMPTOM_COLORS = {
   mucus: '#9b59b6',
 };
 
+function showMobileWarning() {
+  if (mobileWarningShown) return;
+  mobileWarningShown = true;
+  const toast = document.createElement('div');
+  toast.className = 'vas-mobile-warning';
+  toast.textContent = t('ui.vasMobileWarning');
+  document.body.appendChild(toast);
+  setTimeout(() => {
+    toast.classList.add('fade-out');
+    setTimeout(() => toast.remove(), 400);
+  }, 4000);
+}
+
 function createSliders(container, onChange) {
   container.innerHTML = '';
   sliderInstances.all = [];
+
+  if (clinicalMode && window.innerWidth < 500) {
+    showMobileWarning();
+  }
 
   SYMPTOM_KEYS.forEach((key) => {
     const card = document.createElement('div');
@@ -63,9 +81,35 @@ function createSliders(container, onChange) {
 
       const severityLabel = document.createElement('span');
       severityLabel.className = 'slider-severity';
-      severityLabel.textContent = t('severity')[0];
+      severityLabel.textContent = clinicalMode ? t('ui.clinicalUnit') : t('severity')[0];
 
       sliderWrap.appendChild(sliderEl);
+
+      // VAS tick marks
+      if (clinicalMode) {
+        const ticks = document.createElement('div');
+        ticks.className = 'vas-ticks';
+        for (let n = 10; n <= 90; n += 10) {
+          const tick = document.createElement('div');
+          tick.className = 'vas-tick';
+          tick.style.left = `${n}%`;
+          ticks.appendChild(tick);
+        }
+        sliderWrap.appendChild(ticks);
+      }
+
+      // VAS endpoint anchors
+      if (clinicalMode) {
+        const anchors = document.createElement('div');
+        anchors.className = 'vas-anchors';
+        const left = document.createElement('span');
+        left.textContent = t('ui.vasAnchorLeft');
+        const right = document.createElement('span');
+        right.textContent = t('ui.vasAnchorRight');
+        anchors.appendChild(left);
+        anchors.appendChild(right);
+        sliderWrap.appendChild(anchors);
+      }
 
       const valueRow = document.createElement('div');
       valueRow.className = 'slider-value-row';
@@ -129,7 +173,11 @@ function resetAll() {
 function updateLabels() {
   sliderInstances.all?.forEach(({ stageIndex, slider, valueDisplay, severityLabel }) => {
     const val = Math.round(slider.get());
-    severityLabel.textContent = t('severity')[val];
+    if (clinicalMode) {
+      severityLabel.textContent = t('ui.clinicalUnit');
+    } else {
+      severityLabel.textContent = t('severity')[val];
+    }
   });
 
   document.querySelectorAll('.symptom-title').forEach((el) => {
@@ -142,6 +190,15 @@ function updateLabels() {
     const stages = t('stages');
     const stagesShort = t('stagesShort');
     el.innerHTML = `<span class="stage-full">${stages[i]}</span><span class="stage-short">${stagesShort[i]}</span>`;
+  });
+
+  // Update VAS anchors
+  document.querySelectorAll('.vas-anchors').forEach((el) => {
+    const spans = el.querySelectorAll('span');
+    if (spans.length === 2) {
+      spans[0].textContent = t('ui.vasAnchorLeft');
+      spans[1].textContent = t('ui.vasAnchorRight');
+    }
   });
 }
 

@@ -22,10 +22,20 @@ Based on research at Tampere University ([Mäki-Heikkilä 2020](https://doi.org/
 
 - **Two rating modes**
   - **Standard mode** — ordinal 0–5 severity scale (None to Very severe)
-  - **Clinical VAS mode** — 100 mm Visual Analogue Scale with 1 mm precision, designed for 13" iPad
+  - **Clinical VAS mode** — 100 mm Visual Analogue Scale with 1 mm precision
+- **VAS mode enhancements**
+  - Endpoint anchors: "No symptom" / "Worst imaginable" below each slider
+  - Ruler tick marks every 10 mm along the slider track
+  - Fixed 100 mm slider width at all screen sizes
+  - Multi-column card layout on wide screens (>1100 px)
+  - Mobile viewport warning when screen is too small for calibrated VAS
 - **Interactive sliders** with real-time chart updates
 - **Bilingual** — English and Finnish (FI/EN toggle)
-- **Export** — PDF report, Excel spreadsheet, JSON data, clipboard text
+- **Export**
+  - **PDF** — vector chart (smooth Bezier curves, distinct point markers and dash patterns per symptom) with data table; no raster images
+  - **Excel** — spreadsheet with all values
+  - **JSON** — structured data with mode and language metadata
+  - **Clipboard** — formatted text summary
 - **Responsive** — works on desktop, tablet, and mobile
 - **Accessible** — keyboard navigation, screen reader labels, WCAG contrast
 
@@ -42,9 +52,17 @@ Based on research at Tampere University ([Mäki-Heikkilä 2020](https://doi.org/
 | 4     | Severe      |
 | 5     | Very severe |
 
+Chart Y-axis shows severity labels. PDF and exports include severity text alongside numeric values.
+
 ### Clinical VAS mode
 
-Toggle with the **VAS** button in the top bar. Each slider becomes a 100 mm Visual Analogue Scale (0–100, 1 mm steps). The slider track is rendered at exactly 100 mm CSS width, calibrated for a 13" iPad in landscape orientation. The chart Y-axis adjusts to 0–100 and exports include the measurement unit (mm).
+Toggle with the **VAS** button in the top bar. Each slider becomes a 100 mm Visual Analogue Scale (0–100, 1 mm steps). The slider track is rendered at exactly 100 mm CSS width, calibrated for tablet use.
+
+- **Endpoint anchors** — "No symptom" (left) and "Worst imaginable" (right) below each slider, translated to Finnish when the language is switched
+- **Tick marks** — subtle grey lines at every 10 mm along the track
+- **Chart Y-axis** — 0–100 with ticks at 0, 25, 50, 75, 100
+- **PDF export** — full-page vector chart drawn with jsPDF primitives (smooth curves, clamped Bezier control points, distinct point markers and dash patterns); data table on page 2
+- **Wide-screen layout** — two-column card grid on screens wider than 1100 px; app container widens to 1200 px
 
 ## Embedding via iframe
 
@@ -67,6 +85,8 @@ npm run dev       # Start dev server
 npm run build     # Build for production
 npm run preview   # Preview production build
 ```
+
+Built with Vite, Chart.js, noUiSlider, jsPDF (+autotable), and SheetJS.
 
 ## Citation
 
@@ -102,10 +122,20 @@ Perustuu Tampereen yliopiston tutkimukseen ([Mäki-Heikkilä 2020](https://doi.o
 
 - **Kaksi arviointitilaa**
   - **Vakiotila** — luokitteluasteikko 0–5 (Ei oiretta – Erittäin vaikea)
-  - **Kliininen VAS-tila** — 100 mm:n visuaalinen analoginen asteikko 1 mm:n tarkkuudella, suunniteltu 13" iPadille
+  - **Kliininen VAS-tila** — 100 mm:n visuaalinen analoginen asteikko 1 mm:n tarkkuudella
+- **VAS-tilan parannukset**
+  - Päätepisteankkurit: "Ei oiretta" / "Pahin mahdollinen" jokaisen liukusäätimen alla
+  - Viivaimen asteikkomerkit 10 mm:n välein liukusäätimen radalla
+  - Kiinteä 100 mm:n liukusäätimen leveys kaikilla näyttöko'oilla
+  - Monisarakkeinen korttinäkymä leveillä näytöillä (>1100 px)
+  - Mobiilivaroitus, kun näyttö on liian pieni kalibroidulle VAS:lle
 - **Interaktiiviset liukusäätimet** reaaliaikaisella kuvaajapäivityksellä
 - **Kaksikielinen** — suomi ja englanti (FI/EN-kytkin)
-- **Vienti** — PDF-raportti, Excel-taulukko, JSON-data, leikepöytäteksti
+- **Vienti**
+  - **PDF** — vektorikuvaaja (pehmeät Bezier-käyrät, erilliset pistekuviot ja viivatyypit oireittain) ja datataulukko; ei rasterikuvia
+  - **Excel** — laskentataulukko kaikilla arvoilla
+  - **JSON** — rakenteellinen data tila- ja kielimetatiedoin
+  - **Leikepöytä** — muotoiltu tekstiyhteenveto
 - **Responsiivinen** — toimii pöytäkoneella, tabletilla ja puhelimella
 - **Saavutettava** — näppäimistönavigaatio, ruudunlukijatunnisteet, WCAG-kontrasti
 
@@ -122,9 +152,17 @@ Perustuu Tampereen yliopiston tutkimukseen ([Mäki-Heikkilä 2020](https://doi.o
 | 4    | Vaikea          |
 | 5    | Erittäin vaikea |
 
+Kuvaajan Y-akseli näyttää vaikeusasteet tekstinä. PDF ja muut viennit sisältävät vaikeusastetekstin numeerisen arvon rinnalla.
+
 ### Kliininen VAS-tila
 
-Kytke päälle **VAS**-painikkeesta yläpalkissa. Jokainen liukusäädin muuttuu 100 mm:n visuaaliseksi analogiseksi asteikoksi (0–100, 1 mm:n askelin). Liukusäätimen rata renderöidään tarkalleen 100 mm:n CSS-levyisenä, kalibroitu 13" iPadin vaakanäkymälle. Kuvaajan Y-akseli mukautuu välille 0–100 ja viennit sisältävät mittayksikön (mm).
+Kytke päälle **VAS**-painikkeesta yläpalkissa. Jokainen liukusäädin muuttuu 100 mm:n visuaaliseksi analogiseksi asteikoksi (0–100, 1 mm:n askelin). Liukusäätimen rata renderöidään tarkalleen 100 mm:n CSS-levyisenä, kalibroitu tablettikäyttöön.
+
+- **Päätepisteankkurit** — "Ei oiretta" (vasen) ja "Pahin mahdollinen" (oikea) jokaisen liukusäätimen alla; kääntyvät automaattisesti kielen vaihtuessa
+- **Asteikkomerkit** — hienovaraiset harmaat viivat 10 mm:n välein radalla
+- **Kuvaajan Y-akseli** — 0–100, asteikkomerkit kohdissa 0, 25, 50, 75, 100
+- **PDF-vienti** — koko sivun vektorikuvaaja jsPDF-piirtoprimitiiveillä (pehmeät käyrät, rajatut Bezier-ohjainpisteet, erilliset pistekuviot ja viiva­tyypit); datataulukko sivulla 2
+- **Leveän näytön asettelu** — kahden sarakkeen korttiruudukko yli 1100 px leveillä näytöillä; sovelluksen kehys levenee 1200 px:iin
 
 ## Upottaminen iframella
 
@@ -138,6 +176,17 @@ Kytke päälle **VAS**-painikkeesta yläpalkissa. Jokainen liukusäädin muuttuu
   title="Oirekuvaaja"
 ></iframe>
 ```
+
+## Kehitys
+
+```bash
+npm install
+npm run dev       # Käynnistä kehityspalvelin
+npm run build     # Tuotantoversio
+npm run preview   # Esikatsele tuotantoversiota
+```
+
+Rakennettu: Vite, Chart.js, noUiSlider, jsPDF (+autotable), SheetJS.
 
 ## Viittaaminen
 
